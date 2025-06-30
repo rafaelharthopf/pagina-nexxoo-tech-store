@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Nexxoo Tech Store – Serviços de TI</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+
+    <style>
+      :root {
+        --brand-primary: #004aad; /* azul corporativo */
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* HERO */
+      .hero {
+        background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1650&q=80")
+          center/cover no-repeat;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        color: #fff;
+      }
+      .hero-overlay {
+        background: rgba(0, 0, 0, 0.55);
+        inset: 0;
+      }
+
+      /* SERVICES ICON */
+      .service-icon {
+        font-size: 3rem;
+        color: var(--brand-primary);
+      }
+
+      /* FOOTER */
+      footer {
+        background: #111;
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#home">Nexxoo Tech Store</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Serviços</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="hero position-relative">
+      <div class="hero-overlay position-absolute"></div>
+      <div class="container position-relative text-center">
+        <h1 class="display-5 fw-bold">Suporte em TI confiável e ágil</h1>
+        <p class="lead mb-4">
+          Manutenção de computadores, impressoras e soluções personalizadas para
+          o seu negócio.
+        </p>
+        <a href="#contact" class="btn btn-primary btn-lg"
+          >Solicitar Orçamento</a
+        >
+      </div>
+    </header>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-5">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-5">Serviços</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="text-center p-4 h-100 border rounded-4">
+              <i class="bi bi-hdd-stack-fill service-icon"></i>
+              <h5 class="fw-semibold mt-3">Formatação</h5>
+              <p class="mb-0">
+                Formatação completa com ou sem backup, deixando seus sistemas
+                limpos e performáticos.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="text-center p-4 h-100 border rounded-4">
+              <i class="bi bi-wrench-adjustable-circle service-icon"></i>
+              <h5 class="fw-semibold mt-3">Manutenção Preventiva</h5>
+              <p class="mb-0">
+                Evite falhas e downtime com rotinas de manutenção preventiva e
+                corretiva.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="text-center p-4 h-100 border rounded-4">
+              <i class="bi bi-cpu service-icon"></i>
+              <h5 class="fw-semibold mt-3">Limpeza Física</h5>
+              <p class="mb-0">
+                Remoção de poeira, troca de pasta térmica e cuidados para manter
+                seu hardware em dia.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="text-center p-4 h-100 border rounded-4">
+              <i class="bi bi-pc-display service-icon"></i>
+              <h5 class="fw-semibold mt-3">Montagem & Upgrade</h5>
+              <p class="mb-0">
+                Projetamos e montamos PCs sob medida e realizamos upgrades de
+                componentes.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="text-center p-4 h-100 border rounded-4">
+              <i class="bi bi-graph-up service-icon"></i>
+              <h5 class="fw-semibold mt-3">Diagnóstico</h5>
+              <p class="mb-0">
+                Análise completa de hardware e software para identificar e
+                resolver problemas.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="text-center p-4 h-100 border rounded-4">
+              <i class="bi bi-printer-fill service-icon"></i>
+              <h5 class="fw-semibold mt-3">Impressoras</h5>
+              <p class="mb-0">
+                Reparos e manutenção em impressoras de diversos modelos e
+                marcas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="bg-primary text-white py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="fw-bold mb-4">Quem Somos</h2>
+            <p class="lead">
+              A <strong>Nexxoo Tech Store</strong> atua no mercado de tecnologia
+              fornecendo serviços especializados em manutenção de computadores e
+              impressoras. Priorizamos <em>qualidade</em>, <em>confiança</em> e
+              <em>agilidade</em> para garantir a satisfação de nossos clientes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-5">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-4">Entre em Contato</h2>
+        <div class="row justify-content-center g-4">
+          <div class="col-md-5">
+            <div class="border rounded-4 p-4 text-center h-100">
+              <i class="bi bi-whatsapp text-success fs-1 mb-3"></i>
+              <h5 class="fw-semibold">Técnico Alisson</h5>
+              <p class="mb-2">(18) 99158-2377</p>
+              <a
+                class="btn btn-success"
+                href="https://wa.me/5518991582377?text=Olá%20Alisson%2C%20gostaria%20de%20um%20orçamento%20para%20serviços%20de%20TI."
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="bi bi-whatsapp me-1"></i>Falar com Alisson
+              </a>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="border rounded-4 p-4 text-center h-100">
+              <i class="bi bi-whatsapp text-success fs-1 mb-3"></i>
+              <h5 class="fw-semibold">Técnico Isdael</h5>
+              <p class="mb-2">(18) 98146-5579</p>
+              <a
+                class="btn btn-success"
+                href="https://wa.me/5518981465579?text=Olá%20Isdael%2C%20gostaria%20de%20um%20orçamento%20para%20serviços%20de%20TI."
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="bi bi-whatsapp me-1"></i>Falar com Isdael
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a
+      href="https://wa.me/5518991582377?text=Olá%2C%20gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20de%20TI."
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chamar no WhatsApp"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <footer class="py-4 text-center">
+      <div class="container">
+        <small>
+          &copy; <span id="ano-atual"></span> Nexxoo Tech Store. Todos os
+          direitos reservados.
+        </small>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="index.js"></script>
+
+  </body>
+</html>
