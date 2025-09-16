@@ -4,61 +4,449 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Nexxoo Tech Store - Serviços especializados em TI, manutenção de computadores e impressoras. Suporte técnico confiável e ágil." />
 
-    <title>Nexxoo Tech Store – Serviços de TI</title>
+    <title>Nexxoo Tech Store – Serviços Especializados em TI</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Bootstrap Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
       :root {
-        --brand-primary: #004aad; /* azul corporativo */
+        --brand-primary: #004aad;
+        --brand-secondary: #0066ff;
+        --brand-accent: #00d4ff;
+        --text-dark: #1a1a1a;
+        --text-light: #6b7280;
+        --bg-light: #f8fafc;
+        --border-light: #e2e8f0;
+        --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
       }
 
       html {
         scroll-behavior: smooth;
       }
 
-      /* HERO */
+      /* NAVBAR IMPROVEMENTS */
+      .navbar {
+        backdrop-filter: blur(10px);
+        background: rgba(0, 74, 173, 0.95) !important;
+        box-shadow: var(--shadow-light);
+        padding: 1rem 0;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: -0.025em;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--brand-accent) !important;
+        transform: translateY(-1px);
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--brand-accent);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after {
+        width: 80%;
+      }
+
+      /* HERO SECTION */
       .hero {
-        background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1650&q=80")
-          center/cover no-repeat;
-        min-height: 60vh;
+        background: linear-gradient(135deg, rgba(0, 74, 173, 0.9), rgba(0, 102, 255, 0.8)),
+                    url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1650&q=80") center/cover no-repeat;
+        min-height: 70vh;
         display: flex;
         align-items: center;
         color: #fff;
-      }
-      .hero-overlay {
-        background: rgba(0, 0, 0, 0.55);
-        inset: 0;
+        position: relative;
+        overflow: hidden;
       }
 
-      /* SERVICES ICON */
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+
+      .hero-content {
+        z-index: 1;
+        position: relative;
+      }
+
+      .hero h1 {
+        font-weight: 700;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero .lead {
+        font-size: 1.25rem;
+        font-weight: 400;
+        opacity: 0.95;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+      }
+
+      .btn-hero {
+        background: linear-gradient(135deg, var(--brand-accent), var(--brand-secondary));
+        border: none;
+        padding: 1rem 2.5rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        box-shadow: var(--shadow-medium);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-hero:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, #00b8e6, #0052cc);
+      }
+
+      /* SERVICES SECTION */
+      .services-section {
+        padding: 6rem 0;
+        background: var(--bg-light);
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 600px;
+        margin: 0 auto 4rem;
+      }
+
+      .service-card {
+        background: white;
+        border: none;
+        border-radius: 20px;
+        padding: 2.5rem 2rem;
+        height: 100%;
+        box-shadow: var(--shadow-light);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .service-card:hover::before {
+        transform: translateX(0);
+      }
+
       .service-icon {
-        font-size: 3rem;
+        font-size: 3.5rem;
         color: var(--brand-primary);
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover .service-icon {
+        color: var(--brand-secondary);
+        transform: scale(1.1);
+      }
+
+      .service-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+      }
+
+      .service-description {
+        color: var(--text-light);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      /* ABOUT SECTION */
+      .about-section {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E") repeat;
+        opacity: 0.1;
+      }
+
+      .about-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .about-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: white;
+      }
+
+      .about-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .highlight {
+        color: var(--brand-accent);
+        font-weight: 600;
+      }
+
+      /* CONTACT SECTION */
+      .contact-section {
+        padding: 6rem 0;
+        background: white;
+      }
+
+      .contact-card {
+        background: white;
+        border: 2px solid var(--border-light);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        height: 100%;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .contact-card:hover {
+        border-color: var(--brand-primary);
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .contact-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        color: #25d366;
+      }
+
+      .instagram-icon {
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .contact-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text-dark);
+      }
+
+      .contact-info {
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      .btn-whatsapp {
+        background: #25d366;
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-whatsapp:hover {
+        background: #20b954;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .btn-instagram {
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-instagram:hover {
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+        opacity: 0.9;
       }
 
       /* FOOTER */
-      footer {
-        background: #111;
-        color: #aaa;
+      .footer {
+        background: var(--text-dark);
+        color: var(--text-light);
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--brand-primary);
+        color: white;
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .social-link.instagram {
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      }
+
+      .social-link.whatsapp {
+        background: #25d366;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .service-card {
+          padding: 2rem 1.5rem;
+        }
+
+        .contact-card {
+          padding: 2rem 1.5rem;
+        }
+
+        .about-section,
+        .services-section,
+        .contact-section {
+          padding: 4rem 0;
+        }
       }
     </style>
   </head>
   <body>
     <!-- NAVBAR -->
-    <nav
-      class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm"
-    >
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="#home">Nexxoo Tech Store</a>
+        <a class="navbar-brand" href="#home">
+          <i class="bi bi-cpu-fill me-2"></i>
+          Nexxoo Tech Store
+        </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -87,83 +475,106 @@
     </nav>
 
     <!-- HERO -->
-    <header id="home" class="hero position-relative">
-      <div class="hero-overlay position-absolute"></div>
-      <div class="container position-relative text-center">
-        <h1 class="display-5 fw-bold">Suporte em TI confiável e ágil</h1>
-        <p class="lead mb-4">
-          Manutenção de computadores, impressoras e soluções personalizadas para
-          o seu negócio.
+    <header id="home" class="hero">
+      <div class="container hero-content text-center">
+        <h1>Suporte em TI Confiável e Ágil</h1>
+        <p class="lead">
+          Especialistas em manutenção de computadores, impressoras e soluções personalizadas 
+          para o seu negócio. Tecnologia que funciona, sempre.
         </p>
-        <a href="#contact" class="btn btn-primary btn-lg"
-          >Solicitar Orçamento</a
-        >
+        <a href="#contact" class="btn btn-primary btn-hero">
+          <i class="bi bi-chat-dots-fill me-2"></i>
+          Solicitar Orçamento
+        </a>
       </div>
     </header>
 
     <!-- SERVICES -->
-    <section id="services" class="py-5">
+    <section id="services" class="services-section">
       <div class="container">
-        <h2 class="text-center fw-bold mb-5">Serviços</h2>
+        <div class="text-center mb-5">
+          <h2 class="section-title">Nossos Serviços</h2>
+          <p class="section-subtitle">
+            Soluções completas em TI para manter seu negócio funcionando perfeitamente
+          </p>
+        </div>
+        
         <div class="row g-4">
           <div class="col-12 col-md-6 col-lg-4">
-            <div class="text-center p-4 h-100 border rounded-4">
-              <i class="bi bi-hdd-stack-fill service-icon"></i>
-              <h5 class="fw-semibold mt-3">Formatação</h5>
-              <p class="mb-0">
-                Formatação completa com ou sem backup, deixando seus sistemas
-                limpos e performáticos.
-              </p>
+            <div class="service-card">
+              <div class="text-center">
+                <i class="bi bi-hdd-stack-fill service-icon"></i>
+                <h5 class="service-title">Formatação Completa</h5>
+                <p class="service-description">
+                  Formatação completa com ou sem backup, instalação de sistemas operacionais 
+                  e programas essenciais. Seu computador como novo.
+                </p>
+              </div>
             </div>
           </div>
+
           <div class="col-12 col-md-6 col-lg-4">
-            <div class="text-center p-4 h-100 border rounded-4">
-              <i class="bi bi-wrench-adjustable-circle service-icon"></i>
-              <h5 class="fw-semibold mt-3">Manutenção Preventiva</h5>
-              <p class="mb-0">
-                Evite falhas e downtime com rotinas de manutenção preventiva e
-                corretiva.
-              </p>
+            <div class="service-card">
+              <div class="text-center">
+                <i class="bi bi-wrench-adjustable-circle service-icon"></i>
+                <h5 class="service-title">Manutenção Preventiva</h5>
+                <p class="service-description">
+                  Evite falhas e downtime com rotinas de manutenção preventiva e corretiva. 
+                  Mantenha seus equipamentos sempre em perfeito funcionamento.
+                </p>
+              </div>
             </div>
           </div>
+
           <div class="col-12 col-md-6 col-lg-4">
-            <div class="text-center p-4 h-100 border rounded-4">
-              <i class="bi bi-cpu service-icon"></i>
-              <h5 class="fw-semibold mt-3">Limpeza Física</h5>
-              <p class="mb-0">
-                Remoção de poeira, troca de pasta térmica e cuidados para manter
-                seu hardware em dia.
-              </p>
+            <div class="service-card">
+              <div class="text-center">
+                <i class="bi bi-cpu service-icon"></i>
+                <h5 class="service-title">Limpeza Física</h5>
+                <p class="service-description">
+                  Limpeza profissional com remoção de poeira, troca de pasta térmica 
+                  e cuidados especiais para prolongar a vida útil do seu hardware.
+                </p>
+              </div>
             </div>
           </div>
+
           <div class="col-12 col-md-6 col-lg-4">
-            <div class="text-center p-4 h-100 border rounded-4">
-              <i class="bi bi-pc-display service-icon"></i>
-              <h5 class="fw-semibold mt-3">Montagem & Upgrade</h5>
-              <p class="mb-0">
-                Projetamos e montamos PCs sob medida e realizamos upgrades de
-                componentes.
-              </p>
+            <div class="service-card">
+              <div class="text-center">
+                <i class="bi bi-pc-display service-icon"></i>
+                <h5 class="service-title">Montagem & Upgrade</h5>
+                <p class="service-description">
+                  Projetamos e montamos PCs sob medida para suas necessidades específicas. 
+                  Realizamos upgrades de componentes para melhor performance.
+                </p>
+              </div>
             </div>
           </div>
+
           <div class="col-12 col-md-6 col-lg-4">
-            <div class="text-center p-4 h-100 border rounded-4">
-              <i class="bi bi-graph-up service-icon"></i>
-              <h5 class="fw-semibold mt-3">Diagnóstico</h5>
-              <p class="mb-0">
-                Análise completa de hardware e software para identificar e
-                resolver problemas.
-              </p>
+            <div class="service-card">
+              <div class="text-center">
+                <i class="bi bi-graph-up service-icon"></i>
+                <h5 class="service-title">Diagnóstico Completo</h5>
+                <p class="service-description">
+                  Análise detalhada de hardware e software para identificar problemas 
+                  e otimizar o desempenho dos seus equipamentos.
+                </p>
+              </div>
             </div>
           </div>
+
           <div class="col-12 col-md-6 col-lg-4">
-            <div class="text-center p-4 h-100 border rounded-4">
-              <i class="bi bi-printer-fill service-icon"></i>
-              <h5 class="fw-semibold mt-3">Impressoras</h5>
-              <p class="mb-0">
-                Reparos e manutenção em impressoras de diversos modelos e
-                marcas.
-              </p>
+            <div class="service-card">
+              <div class="text-center">
+                <i class="bi bi-printer-fill service-icon"></i>
+                <h5 class="service-title">Reparos em Impressoras</h5>
+                <p class="service-description">
+                  Manutenção especializada em impressoras de diversos modelos e marcas. 
+                  Reparos rápidos e peças de qualidade garantida.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -171,16 +582,21 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="bg-primary text-white py-5">
+    <section id="about" class="about-section">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
-            <h2 class="fw-bold mb-4">Quem Somos</h2>
-            <p class="lead">
-              A <strong>Nexxoo Tech Store</strong> atua no mercado de tecnologia
-              fornecendo serviços especializados em manutenção de computadores e
-              impressoras. Priorizamos <em>qualidade</em>, <em>confiança</em> e
-              <em>agilidade</em> para garantir a satisfação de nossos clientes.
+          <div class="col-lg-8 about-content text-center">
+            <h2 class="about-title">Quem Somos</h2>
+            <p class="about-text">
+              A <span class="highlight">Nexxoo Tech Store</span> é uma empresa especializada em serviços 
+              de tecnologia da informação, atuando no mercado com foco em excelência e inovação. 
+              Nossa missão é fornecer soluções tecnológicas que impulsionem o crescimento do seu negócio.
+            </p>
+            <p class="about-text">
+              Priorizamos <span class="highlight">qualidade</span>, <span class="highlight">confiança</span> 
+              e <span class="highlight">agilidade</span> em todos os nossos serviços, garantindo a 
+              satisfação completa dos nossos clientes através de um atendimento personalizado e 
+              soluções sob medida.
             </p>
           </div>
         </div>
@@ -188,37 +604,63 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="py-5">
+    <section id="contact" class="contact-section">
       <div class="container">
-        <h2 class="text-center fw-bold mb-4">Entre em Contato</h2>
-        <div class="row justify-content-center g-4">
-          <div class="col-md-5">
-            <div class="border rounded-4 p-4 text-center h-100">
-              <i class="bi bi-whatsapp text-success fs-1 mb-3"></i>
-              <h5 class="fw-semibold">Técnico Alisson</h5>
-              <p class="mb-2">(18) 99158-2377</p>
+        <div class="text-center mb-5">
+          <h2 class="section-title">Entre em Contato</h2>
+          <p class="section-subtitle">
+            Fale conosco e solicite seu orçamento. Estamos prontos para atender você!
+          </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <div class="contact-card">
+              <i class="bi bi-whatsapp contact-icon"></i>
+              <h5 class="contact-name">Técnico Alisson</h5>
+              <p class="contact-info">(18) 99158-2377</p>
               <a
-                class="btn btn-success"
+                class="btn btn-whatsapp"
                 href="https://wa.me/5518991582377?text=Olá%20Alisson%2C%20gostaria%20de%20um%20orçamento%20para%20serviços%20de%20TI."
                 target="_blank"
                 rel="noopener"
               >
-                <i class="bi bi-whatsapp me-1"></i>Falar com Alisson
+                <i class="bi bi-whatsapp"></i>
+                Falar com Alisson
               </a>
             </div>
           </div>
-          <div class="col-md-5">
-            <div class="border rounded-4 p-4 text-center h-100">
-              <i class="bi bi-whatsapp text-success fs-1 mb-3"></i>
-              <h5 class="fw-semibold">Técnico Isdael</h5>
-              <p class="mb-2">(18) 98146-5579</p>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="contact-card">
+              <i class="bi bi-whatsapp contact-icon"></i>
+              <h5 class="contact-name">Técnico Isdael</h5>
+              <p class="contact-info">(18) 98146-5579</p>
               <a
-                class="btn btn-success"
+                class="btn btn-whatsapp"
                 href="https://wa.me/5518981465579?text=Olá%20Isdael%2C%20gostaria%20de%20um%20orçamento%20para%20serviços%20de%20TI."
                 target="_blank"
                 rel="noopener"
               >
-                <i class="bi bi-whatsapp me-1"></i>Falar com Isdael
+                <i class="bi bi-whatsapp"></i>
+                Falar com Isdael
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="contact-card">
+              <i class="bi bi-instagram contact-icon instagram-icon"></i>
+              <h5 class="contact-name">Siga-nos no Instagram</h5>
+              <p class="contact-info">@nexxootech</p>
+              <a
+                class="btn btn-instagram"
+                href="https://www.instagram.com/nexxootech/"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="bi bi-instagram"></i>
+                Seguir no Instagram
               </a>
             </div>
           </div>
@@ -226,18 +668,29 @@
       </div>
     </section>
 
-    <footer class="py-4 text-center">
+    <!-- FOOTER -->
+    <footer class="footer">
       <div class="container">
-        <small>
-          &copy; <span id="ano-atual"></span> Nexxoo Tech Store. Todos os
-          direitos reservados.
-        </small>
+        <div class="footer-content">
+          <div class="social-links">
+            <a href="https://www.instagram.com/nexxootech/" target="_blank" rel="noopener" class="social-link instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://wa.me/5518991582377" target="_blank" rel="noopener" class="social-link whatsapp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+          </div>
+          <small>
+            &copy; <span id="ano-atual"></span> Nexxoo Tech Store. Todos os direitos reservados.
+            <br>
+            Desenvolvido com 💙 para oferecer as melhores soluções em TI.
+          </small>
+        </div>
       </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="index.js"></script>
-
   </body>
 </html>
